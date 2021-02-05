@@ -16,12 +16,8 @@ const Contenedor = styled.div`
     grid-template-rows: auto auto 1fr;
 
   `;
-const TituloHeader = styled.h1`
-    font-weight: 400;
-	  font-size: 24px;
-   `;
 const Encabezado = styled.header`
-  --verde: #80BE4E;
+  //--verde: #80BE4E;
   --azul: #007AEA;
   display: flex;
   align-items: center;
@@ -32,6 +28,11 @@ const Encabezado = styled.header`
   color: #fff;
   border-radius: 3px 3px 0px 0px;
 `;
+
+const TituloHeader = styled.h1`
+    font-weight: 400;
+	  font-size: 24px;
+   `;
 
 export const Header = () => {
 
