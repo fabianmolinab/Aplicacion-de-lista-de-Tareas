@@ -5,7 +5,7 @@ import { Header } from './Componentes/Header';
 import { FormularioTareas } from './Componentes/FormularioTareas';
 
 
-const Contenedor = styled.div`
+const Contenedor__app = styled.div`
 box-shadow: 0 2px 10px rgba(139,139,139,.25);
 border-radius: 3px;
 display: grid;
@@ -18,12 +18,6 @@ width: 100%;
 `;
 export const App = () => {
 
-  // const inicialState = [{
-  //   id: 1,
-  //   description: '',
-  //   completado: false
-  // }];
-
   //Hook para cambiar estado de submit
   const [tareas, cambiarTareas] = useState([{
     id: 1,
@@ -32,9 +26,9 @@ export const App = () => {
   }]);
 
   return (
-    <Contenedor>
+    <Contenedor__app>
       <Header />
       <FormularioTareas tareas={tareas} cambiarTareas={cambiarTareas} />
-    </Contenedor>
+    </Contenedor__app>
   )
 };

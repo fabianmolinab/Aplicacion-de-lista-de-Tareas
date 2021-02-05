@@ -1,13 +1,22 @@
 import React, { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
+import { InputFormulario } from './InputFormulario';
+import { BotonFormulario } from './BotonFormulario';
+
+import styled from 'styled-components';
+
+
+const FormularioTareasStyles = styled.form`
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: relative;
+padding: 20px;
+box-shadow: 0 2px 10px rgba(139,139,139,.25);
+`
 
 export const FormularioTareas = ({ tareas, cambiarTareas }) => {
-  const [inputTarea, cambiarInputTarea] = useState('');
 
-  const handleInput = (e) => {
-    cambiarInputTarea(e.target.value);
-  }
+  const [inputTarea, cambiarInputTarea] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,17 +34,16 @@ export const FormularioTareas = ({ tareas, cambiarTareas }) => {
     cambiarInputTarea('');
   }
 
+
   return (
-    <form action="" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Escribe una tarea"
-        value={inputTarea}
-        onChange={(e) => handleInput(e)}
+    <FormularioTareasStyles action="" onSubmit={handleSubmit}>
+
+      <InputFormulario
+        inputTarea={inputTarea}
+        cambiarInputTarea={cambiarInputTarea}
       />
-      <button type="submit">
-        <FontAwesomeIcon icon={faPlusSquare} />
-      </button>
-    </form>
+
+      <BotonFormulario />
+    </FormularioTareasStyles>
   );
 }

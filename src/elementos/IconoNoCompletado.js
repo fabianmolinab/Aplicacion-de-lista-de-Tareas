@@ -1,10 +1,9 @@
 import React from 'react'
-import './icon.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { Iconos } from './Iconos';
 
 export const IconoNoCompletado = () => {
   return (
-    <FontAwesomeIcon icon={faEyeSlash} className="IconoNoCompletado" />
+    <Iconos icon={faEyeSlash} />
   )
 }

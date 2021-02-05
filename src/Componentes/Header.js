@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Boton } from '../elementos/Boton';
-import { IconoNoCompletado } from '../elementos/IconoNoCompletado';
+import { BotonHeader } from './BotonHeader';
 
 const Contenedor = styled.div`
     max-width: 700px;
@@ -14,17 +13,14 @@ const Contenedor = styled.div`
     border-radius: 3px;
     display: grid;
     grid-template-rows: auto auto 1fr;
-
   `;
 const Encabezado = styled.header`
-  //--verde: #80BE4E;
-  --azul: #007AEA;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 60px;
   padding: 0 20px;
-  background: var(--azul);
+  background:  #007AEA;
   color: #fff;
   border-radius: 3px 3px 0px 0px;
 `;
@@ -35,16 +31,12 @@ const TituloHeader = styled.h1`
    `;
 
 export const Header = () => {
-
   return (
-
     <Contenedor>
       <Encabezado>
         <TituloHeader> Lista de Tareas</TituloHeader>
-        <Boton>
-          No mostrar completadas
-          <IconoNoCompletado />
-        </Boton>
+        {/* ---Boton no completado--- */}
+        <BotonHeader />
       </Encabezado>
     </Contenedor>
   )
