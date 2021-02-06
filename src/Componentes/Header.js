@@ -2,18 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { BotonHeader } from './BotonHeader';
+import { Tituloh1 } from '../elementos/Tituloh1';
+import { Contenedor } from '../elementos/Contenedor';
 
-const Contenedor = styled.div`
-    max-width: 700px;
-    width: 100%;
-    height: 100%;
-    max-height: 90vh;
-    overflow: auto;
-    box-shadow: 0 2px 10px rgba(139,139,139,.25);
-    border-radius: 3px;
-    display: grid;
-    grid-template-rows: auto auto 1fr;
-  `;
 const Encabezado = styled.header`
   display: flex;
   align-items: center;
@@ -25,16 +16,13 @@ const Encabezado = styled.header`
   border-radius: 3px 3px 0px 0px;
 `;
 
-const TituloHeader = styled.h1`
-    font-weight: 400;
-	  font-size: 24px;
-   `;
+
 
 export const Header = () => {
   return (
     <Contenedor>
       <Encabezado>
-        <TituloHeader> Lista de Tareas</TituloHeader>
+        <Tituloh1> Lista de Tareas</Tituloh1>
         {/* ---Boton no completado--- */}
         <BotonHeader />
       </Encabezado>

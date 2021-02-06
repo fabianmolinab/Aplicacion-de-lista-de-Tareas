@@ -1,7 +1,9 @@
 import React from 'react'
-import { IconoNoCompletado } from '../elementos/IconoNoCompletado';
-
 import styled from 'styled-components';
+
+import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { Iconos } from '../elementos/Iconos';
+
 
 export const BotonHeaderStyles = styled.button`
 
@@ -21,7 +23,7 @@ export const BotonHeader = () => {
 	return (
 		<BotonHeaderStyles>
 			No mostrar completadas
-			<IconoNoCompletado />
+			<Iconos icon={faEyeSlash} />
 		</BotonHeaderStyles>
 	)
 }
