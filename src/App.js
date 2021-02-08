@@ -7,11 +7,8 @@ import { Contenedor } from './elementos/Contenedor';
 export const App = () => {
 
   //Hook para cambiar estado de submit
-  const [tareas, cambiarTareas] = useState([{
-    id: 1,
-    descripcion: "Fabian es lindo",
-    completado: false
-  }]);
+  const [tareas, cambiarTareas] = useState([]);
+  console.log(tareas);
 
   return (
     <Contenedor>

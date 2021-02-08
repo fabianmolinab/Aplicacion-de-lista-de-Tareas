@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid';
+
 import { InputFormulario } from './InputFormulario';
 import { BotonFormulario } from './BotonFormulario';
 import { FormularioStyles } from '../elementos/FormularioStyles';
 
-
-
 export const FormularioTareas = ({ tareas, cambiarTareas }) => {
-
   const [inputTarea, cambiarInputTarea] = useState('');
 
   const handleSubmit = (e) => {
@@ -16,7 +15,7 @@ export const FormularioTareas = ({ tareas, cambiarTareas }) => {
       [
         ...tareas,
         {
-          id: 4,
+          id: uuidv4(),
           texto: inputTarea,
           completada: false
         }
@@ -24,7 +23,6 @@ export const FormularioTareas = ({ tareas, cambiarTareas }) => {
     );
     cambiarInputTarea('');
   }
-
 
   return (
     <FormularioStyles action="" onSubmit={handleSubmit}>
