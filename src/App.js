@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Header } from './Componentes/Header';
 import { FormularioTareas } from './Componentes/FormularioTareas';
 import { Contenedor } from './elementos/Contenedor';
+import { ListaTareas } from './Componentes/ListaTareas';
 
 export const App = () => {
 
@@ -14,6 +15,7 @@ export const App = () => {
     <Contenedor>
       <Header />
       <FormularioTareas tareas={tareas} cambiarTareas={cambiarTareas} />
+      <ListaTareas tareas={tareas} />
     </Contenedor>
   )
 };
