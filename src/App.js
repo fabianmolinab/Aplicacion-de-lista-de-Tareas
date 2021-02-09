@@ -9,7 +9,6 @@ export const App = () => {
 
   //Hook para cambiar estado de submit
   const [tareas, cambiarTareas] = useState([]);
-  console.log(tareas);
 
   return (
     <Contenedor>

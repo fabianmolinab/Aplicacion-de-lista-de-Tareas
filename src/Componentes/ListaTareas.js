@@ -10,7 +10,6 @@ export const ListaTareas = ({ tareas }) => {
           return <Tarea
             key={tarea.id}
             tarea={tarea}
-
           />
         })
           : <div>----Aun no hay tareas----</div>
