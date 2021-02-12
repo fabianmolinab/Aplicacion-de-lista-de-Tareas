@@ -14,7 +14,7 @@ export const App = () => {
     <Contenedor>
       <Header />
       <FormularioTareas tareas={tareas} cambiarTareas={cambiarTareas} />
-      <ListaTareas tareas={tareas} />
+      <ListaTareas tareas={tareas} cambiarTareas={cambiarTareas} />
     </Contenedor>
   )
 };

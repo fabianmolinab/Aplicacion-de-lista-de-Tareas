@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Iconos } from '../elementos/Iconos';
-import { faCheckSquare, faEdit, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faCheckSquare, faEdit, faSquare, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 
-export const Tarea = ({ tarea }) => {
+export const Tarea = ({ tarea, toogleCompletada }) => {
 
   const [editandoTarea, cambiarEditandoTarea] = useState(false);
 
@@ -31,7 +31,8 @@ export const Tarea = ({ tarea }) => {
   return (
     <li>
       <Iconos
-        icon={faCheckSquare}
+        icon={tarea.completada ? faCheckSquare : faSquare}
+        onClick={() => toogleCompletada(tarea.id)}
         formicon="true"
       />
       <div>
