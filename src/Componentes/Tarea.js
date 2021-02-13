@@ -3,7 +3,7 @@ import { Iconos } from '../elementos/Iconos';
 import { faCheckSquare, faEdit, faSquare, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 
-export const Tarea = ({ tarea, toogleCompletada }) => {
+export const Tarea = ({ tarea, toogleCompletada, borrarTarea }) => {
 
   const [editandoTarea, cambiarEditandoTarea] = useState(false);
 
@@ -20,10 +20,10 @@ export const Tarea = ({ tarea, toogleCompletada }) => {
     cambiarNuevaTarea(e.target.value);
   }
 
-  // Al realizar el submit, oculta y cambiar la tarea
+  // Al realizar el submit, oculta y cambia la tarea
   const handleSubmit = (e) => {
     e.preventDefault();
-    cambiarEstadoEditar(false);
+    cambiarEditandoTarea(!editandoTarea);
     tarea.texto = `${nuevaTarea}`;
   }
 
@@ -53,7 +53,7 @@ export const Tarea = ({ tarea, toogleCompletada }) => {
       </div>
       <div>
         <Iconos icon={faEdit} onClick={cambiarEstadoEditar} />
-        <Iconos icon={faTimes} />
+        <Iconos icon={faTimes} onClick={() => borrarTarea(tarea.id)} />
       </div>
     </li>
   )

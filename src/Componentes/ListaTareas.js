@@ -14,6 +14,16 @@ export const ListaTareas = ({ tareas, cambiarTareas }) => {
     }));
   }
 
+  const borrarTarea = (id) => {
+
+    cambiarTareas(tareas.filter((tarea) => {
+      if (tarea.id !== id) {
+        return tarea;
+      }
+      return;
+    }));
+  }
+
   return (
     <ul>
       {
@@ -23,6 +33,7 @@ export const ListaTareas = ({ tareas, cambiarTareas }) => {
             key={tarea.id}
             tarea={tarea}
             toogleCompletada={toogleCompletada}
+            borrarTarea={borrarTarea}
           />
         })
           : <div>----Aun no hay tareas----</div>
