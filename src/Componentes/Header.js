@@ -18,13 +18,18 @@ const Encabezado = styled.header`
 
 
 
-export const Header = () => {
+export const Header = ({ cambiarMostrarCompletadas, mostrarCompletadas }) => {
   return (
     <Contenedor>
       <Encabezado>
         <Tituloh1> Lista de Tareas</Tituloh1>
         {/* ---Boton no completado--- */}
-        <BotonHeader />
+
+
+        <BotonHeader
+          cambiarMostrarCompletadas={cambiarMostrarCompletadas}
+          mostrarCompletadas={mostrarCompletadas}
+        />
       </Encabezado>
     </Contenedor>
   )

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Tarea } from './Tarea'
 
-export const ListaTareas = ({ tareas, cambiarTareas }) => {
+export const ListaTareas = ({ tareas, cambiarTareas, mostrarCompletadas }) => {
 
   const toogleCompletada = (id) => {
 
@@ -28,13 +28,25 @@ export const ListaTareas = ({ tareas, cambiarTareas }) => {
     <ul>
       {
         (tareas.length > 0) ? tareas.map((tarea) => {
+          // Mostrar completadas
+          if (mostrarCompletadas) {
+            return <Tarea
+              key={tarea.id}
+              tarea={tarea}
+              toogleCompletada={toogleCompletada}
+              borrarTarea={borrarTarea}
+            />
+            //Mostrar no completadas
+          } else if (!tarea.completada) {
+            return <Tarea
+              key={tarea.id}
+              tarea={tarea}
+              toogleCompletada={toogleCompletada}
+              borrarTarea={borrarTarea}
+            />
+          }
+          return;
 
-          return <Tarea
-            key={tarea.id}
-            tarea={tarea}
-            toogleCompletada={toogleCompletada}
-            borrarTarea={borrarTarea}
-          />
         })
           : <div>----Aun no hay tareas----</div>
       }

@@ -10,11 +10,27 @@ export const App = () => {
   //Hook para cambiar estado de submit
   const [tareas, cambiarTareas] = useState([]);
 
+  const [mostrarCompletadas, cambiarMostrarCompletadas] = useState(true);
+
+
+
   return (
     <Contenedor>
-      <Header />
-      <FormularioTareas tareas={tareas} cambiarTareas={cambiarTareas} />
-      <ListaTareas tareas={tareas} cambiarTareas={cambiarTareas} />
+      <Header
+        cambiarMostrarCompletadas={cambiarMostrarCompletadas}
+        mostrarCompletadas={mostrarCompletadas}
+      />
+
+      <FormularioTareas
+        tareas={tareas}
+        cambiarTareas={cambiarTareas}
+      />
+
+      <ListaTareas
+        tareas={tareas}
+        cambiarTareas={cambiarTareas}
+        mostrarCompletadas={mostrarCompletadas}
+      />
     </Contenedor>
   )
 };

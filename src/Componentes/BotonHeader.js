@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 
-import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { Iconos } from '../elementos/Iconos';
 
 
@@ -19,12 +19,27 @@ export const BotonHeaderStyles = styled.button`
 	padding: 5px 10px;
 `;
 
-export const BotonHeader = () => {
+export const BotonHeader = ({ cambiarMostrarCompletadas, mostrarCompletadas }) => {
+
+	const toggleCompletadas = () => {
+		cambiarMostrarCompletadas(!mostrarCompletadas);
+	}
+
+
 	return (
-		<BotonHeaderStyles>
-			No mostrar completadas
-			<Iconos icon={faEyeSlash} />
-		</BotonHeaderStyles>
+		<div>
+			{ mostrarCompletadas ?
+				<BotonHeaderStyles onClick={toggleCompletadas}>
+					No mostrar completadas
+						<Iconos icon={faEyeSlash} />
+				</BotonHeaderStyles>
+				:
+				<BotonHeaderStyles onClick={toggleCompletadas}>
+					Mostrar completadas
+						<Iconos icon={faEye} />
+				</BotonHeaderStyles>
+			}
+		</div>
 	)
 }
 
