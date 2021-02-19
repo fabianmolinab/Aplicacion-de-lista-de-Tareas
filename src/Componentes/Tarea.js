@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Iconos } from '../elementos/Iconos';
+import { Iconos } from '../elementos/Iconos.styles';
 import { faCheckSquare, faEdit, faSquare, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 

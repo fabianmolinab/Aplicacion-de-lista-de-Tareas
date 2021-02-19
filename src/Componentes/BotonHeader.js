@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { Iconos } from '../elementos/Iconos';
+import { Iconos } from '../elementos/Iconos.styles';
 
 
 export const BotonHeaderStyles = styled.button`
@@ -24,7 +24,6 @@ export const BotonHeader = ({ cambiarMostrarCompletadas, mostrarCompletadas }) =
 	const toggleCompletadas = () => {
 		cambiarMostrarCompletadas(!mostrarCompletadas);
 	}
-
 
 	return (
 		<div>

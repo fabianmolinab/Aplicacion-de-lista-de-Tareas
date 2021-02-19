@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 
 import { InputFormulario } from './InputFormulario';
-import { BotonFormulario } from './BotonFormulario';
-import { FormularioStyles } from '../elementos/FormularioStyles';
+import { BotonFormularioStyles } from '../elementos/BotonFormulario.styles';
+import { FormularioStyles } from '../elementos/Formulario.styles';
+import { Iconos } from '../elementos/Iconos.styles';
 
 export const FormularioTareas = ({ tareas, cambiarTareas }) => {
 
@@ -33,7 +35,9 @@ export const FormularioTareas = ({ tareas, cambiarTareas }) => {
         cambiarInputTarea={cambiarInputTarea}
       />
 
-      <BotonFormulario />
+      <BotonFormularioStyles>
+        <Iconos formicon="true" icon={faPlusSquare} />
+      </BotonFormularioStyles>
     </FormularioStyles>
   );
 }
