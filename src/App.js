@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Header } from './Componentes/Header';
 import { FormularioTareas } from './Componentes/FormularioTareas';
@@ -7,12 +7,26 @@ import { ListaTareas } from './Componentes/ListaTareas';
 
 export const App = () => {
 
-  //Hook para cambiar estado de submit
-  const [tareas, cambiarTareas] = useState([]);
+  //Valor inicial con las tareas del LocalStorage
+  const tareasGuardadas = localStorage.getItem('tareas') ?
+    JSON.parse(localStorage.getItem('tareas'))
+    : [];
 
+  //Hook para cambiar estado de submit
+  const [tareas, cambiarTareas] = useState(tareasGuardadas);
+
+  //Guardando en el LocalStorage
+  useEffect(() => {
+    localStorage.setItem('tareas', JSON.stringify(tareas));
+  }, [tareas]);
+
+  //Hook para mostrar tareas completadas
   const [mostrarCompletadas, cambiarMostrarCompletadas] = useState(true);
 
-
+  //Estado Mostrar Completadas
+  useEffect(() => {
+    localStorage.setItem('mostrarCompletadas', mostrarCompletadas.toString());
+  }, [mostrarCompletadas]);
 
   return (
     <Contenedor>
