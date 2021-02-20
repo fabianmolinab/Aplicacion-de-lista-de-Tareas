@@ -1,31 +1,20 @@
 import React, { useState } from 'react';
-import { Iconos } from '../elementos/Iconos.styles';
+import { Iconos } from '../Estilos/Iconos.styles';
 import { faCheckSquare, faEdit, faSquare, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { FormularioEditarTareas } from './FormularioEditarTareas';
 
 
 export const Tarea = ({ tarea, toogleCompletada, borrarTarea }) => {
 
+  //Estado para mostar la sección de editar tarea
   const [editandoTarea, cambiarEditandoTarea] = useState(false);
-
-  const [nuevaTarea, cambiarNuevaTarea] = useState(tarea.texto);
 
   //Cambia el estado para que se muestre el form editar
   const cambiarEstadoEditar = () => {
     cambiarEditandoTarea(!editandoTarea)
   }
 
-  //Permite editar la tarea
-  const handleInputChange = (e) => {
-    e.preventDefault();
-    cambiarNuevaTarea(e.target.value);
-  }
 
-  // Al realizar el submit, oculta y cambia la tarea
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    cambiarEditandoTarea(!editandoTarea);
-    tarea.texto = `${nuevaTarea}`;
-  }
 
 
   return (
@@ -36,18 +25,14 @@ export const Tarea = ({ tarea, toogleCompletada, borrarTarea }) => {
         formicon="true"
       />
       <div>
+        {/* Condicional que permite si: editandoTarea esta true muestra todo el formulario para mostrar el formulario de edicion */}
         {editandoTarea
           ?
-          <form action="" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              value={nuevaTarea}
-              onChange={handleInputChange}
-            />
-            <button type="submit">
-              Actualizar
-            </button>
-          </form>
+          <FormularioEditarTareas
+            tarea={tarea}
+            editandoTarea={editandoTarea}
+            cambiarEditandoTarea={cambiarEditandoTarea}
+          />
           : tarea.texto
         }
       </div>

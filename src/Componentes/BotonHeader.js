@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { Iconos } from '../elementos/Iconos.styles';
+import { Iconos } from '../Estilos/Iconos.styles';
 
 
 export const BotonHeaderStyles = styled.button`

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import { Header } from './Componentes/Header';
 import { FormularioTareas } from './Componentes/FormularioTareas';
-import { Contenedor } from './elementos/Contenedor.styles';
+import { Contenedor } from './Estilos/Contenedor.styles';
 import { ListaTareas } from './Componentes/ListaTareas';
 
 export const App = () => {

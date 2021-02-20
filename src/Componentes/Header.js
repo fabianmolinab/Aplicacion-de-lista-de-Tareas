@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Encabezado } from '../elementos/Encabezado.styles';
-import { Contenedor } from '../elementos/Contenedor.styles';
-import { Tituloh1 } from '../elementos/Tituloh1.styles';
+import { Encabezado } from '../Estilos/Encabezado.styles';
+import { Contenedor } from '../Estilos/Contenedor.styles';
+import { Tituloh1 } from '../Estilos/Tituloh1.styles';
 import { BotonHeader } from './BotonHeader';
 
 
