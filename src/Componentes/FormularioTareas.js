@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 
 import { InputFormulario } from './InputFormulario';
-import { BotonFormularioStyles } from '../Estilos/BotonFormulario.styles';
+import { BotonStyles } from '../Estilos/Boton.styles';
 import { FormularioStyles } from '../Estilos/Formulario.styles';
 import { Iconos } from '../Estilos/Iconos.styles';
 
@@ -35,9 +35,9 @@ export const FormularioTareas = ({ tareas, cambiarTareas }) => {
         cambiarInputTarea={cambiarInputTarea}
       />
 
-      <BotonFormularioStyles>
+      <BotonStyles>
         <Iconos formicon="true" icon={faPlusSquare} />
-      </BotonFormularioStyles>
+      </BotonStyles>
     </FormularioStyles>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Iconos } from '../Estilos/Iconos.styles';
 import { faCheckSquare, faEdit, faSquare, faTimes } from '@fortawesome/free-solid-svg-icons'
-import { FormularioEditarTareas } from './FormularioEditarTareas';
+import { FormularioEditarTareas } from './EditarTareas';
 
 
 export const Tarea = ({ tarea, toogleCompletada, borrarTarea }) => {

@@ -1,4 +1,8 @@
 import React, { useState } from 'react'
+import styled from 'styled-components';
+
+import { InputEditarTarea } from '../Estilos/InputEditarTarea';
+import { BotonEditarTareas } from '../Estilos/Boton.styles';
 
 export const FormularioEditarTareas = ({ tarea, editandoTarea, cambiarEditandoTarea }) => {
 
@@ -18,15 +22,22 @@ export const FormularioEditarTareas = ({ tarea, editandoTarea, cambiarEditandoTa
   }
 
   return (
-    <form action="" onSubmit={handleSubmit}>
-      <input
+    <FormularioEditarTarea action="" onSubmit={handleSubmit}>
+      <InputEditarTarea
         type="text"
         value={nuevaTarea}
         onChange={handleInputChange}
       />
-      <button type="submit">
+      <BotonEditarTareas type="submit">
         Actualizar
-      </button>
-    </form>
+      </BotonEditarTareas>
+    </FormularioEditarTarea>
   )
 }
+
+const FormularioEditarTarea = styled.form`
+  background: none;
+  display: flex;
+  font-size: 20px;
+	font-family: 'Roboto', sans-serif;
+`

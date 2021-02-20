@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-
-
 export const Encabezado = styled.header`
   display: flex;
   align-items: center;
