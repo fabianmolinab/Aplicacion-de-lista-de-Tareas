@@ -14,5 +14,16 @@ ${props => props.formicon && css`
   margin-left: 1px;
   cursor: pointer;
 `}
+${props => props.listaicon && css`
+  cursor: pointer;
+	font-size: 16px;
+  margin-left: 20px;
+	transition: .3s ease all;
+`}
 `;
+
+export const IconCheck = styled(Iconos)`
+  margin-right: 20px;
+	font-size: 26px;
+`
 

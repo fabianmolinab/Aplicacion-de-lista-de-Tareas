@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components';
 import { Tarea } from './Tarea'
 
 export const ListaTareas = ({ tareas, cambiarTareas, mostrarCompletadas }) => {
@@ -25,7 +26,7 @@ export const ListaTareas = ({ tareas, cambiarTareas, mostrarCompletadas }) => {
   }
 
   return (
-    <ul>
+    <ListaUl>
       {
         (tareas.length > 0) ? tareas.map((tarea) => {
           // Mostrar completadas
@@ -48,8 +49,23 @@ export const ListaTareas = ({ tareas, cambiarTareas, mostrarCompletadas }) => {
           return;
 
         })
-          : <div>----Aun no hay tareas----</div>
+          : <MensajeListaTareas>----Aun no hay tareas----</MensajeListaTareas>
       }
-    </ul>
+    </ListaUl>
   )
 }
+
+// Estilos
+
+export const ListaUl = styled.ul`
+  list-style: none;
+	height: 100%;
+	overflow: auto;
+`
+export const MensajeListaTareas = styled.div`
+  text-align: center;
+	color: #b8b8b8;
+	font-size: 20px;
+	padding: 40px 20px;
+
+`

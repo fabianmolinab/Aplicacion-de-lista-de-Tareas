@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
-import { Iconos } from '../Estilos/Iconos.styles';
+
+//Estilos
+import { Iconos, IconCheck } from '../Estilos/Iconos.styles';
 import { faCheckSquare, faEdit, faSquare, faTimes } from '@fortawesome/free-solid-svg-icons'
-import { FormularioEditarTareas } from './EditarTareas';
+import { ListaTareasStyles, ListaTareasTextoStyles } from '../Estilos/ListaTareas.styles';
+import { ContenedorFlex } from '../Estilos/ContenedorFlex.styles';
+
+//Componentes
+import { EditarTareas } from './EditarTareas';
 
 
 export const Tarea = ({ tarea, toogleCompletada, borrarTarea }) => {
@@ -14,32 +20,31 @@ export const Tarea = ({ tarea, toogleCompletada, borrarTarea }) => {
     cambiarEditandoTarea(!editandoTarea)
   }
 
-
-
-
   return (
-    <li>
-      <Iconos
+    <ListaTareasStyles>
+      <IconCheck
         icon={tarea.completada ? faCheckSquare : faSquare}
         onClick={() => toogleCompletada(tarea.id)}
         formicon="true"
+        listaicon
+
       />
-      <div>
+      <ListaTareasTextoStyles>
         {/* Condicional que permite si: editandoTarea esta true muestra todo el formulario para mostrar el formulario de edicion */}
         {editandoTarea
           ?
-          <FormularioEditarTareas
+          <EditarTareas
             tarea={tarea}
             editandoTarea={editandoTarea}
             cambiarEditandoTarea={cambiarEditandoTarea}
           />
           : tarea.texto
         }
-      </div>
-      <div>
-        <Iconos icon={faEdit} onClick={cambiarEstadoEditar} />
-        <Iconos icon={faTimes} onClick={() => borrarTarea(tarea.id)} />
-      </div>
-    </li>
+      </ListaTareasTextoStyles>
+      <ContenedorFlex>
+        <Iconos icon={faEdit} onClick={cambiarEstadoEditar} listaicon />
+        <Iconos icon={faTimes} onClick={() => borrarTarea(tarea.id)} listaicon />
+      </ContenedorFlex>
+    </ListaTareasStyles>
   )
 }
