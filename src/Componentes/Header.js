@@ -1,9 +1,9 @@
 import React from 'react';
+import { BotonHeader } from './BotonHeader';
 
 import { Encabezado } from '../Estilos/Encabezado.styles';
 import { Contenedor } from '../Estilos/Contenedor.styles';
 import { Tituloh1 } from '../Estilos/Tituloh1.styles';
-import { BotonHeader } from './BotonHeader';
 
 
 export const Header = ({ cambiarMostrarCompletadas, mostrarCompletadas }) => {

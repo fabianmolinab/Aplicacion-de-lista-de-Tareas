@@ -14,17 +14,20 @@ export const FormularioTareas = ({ tareas, cambiarTareas }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    cambiarTareas(
-      [
-        ...tareas,
-        {
-          id: uuidv4(),
-          texto: inputTarea,
-          completada: false
-        }
-      ]
-    );
-    cambiarInputTarea('');
+    if (inputTarea !== '') {
+      cambiarTareas(
+        [
+          ...tareas,
+          {
+            id: uuidv4(),
+            texto: inputTarea,
+            completada: false
+          }
+        ]
+      );
+      cambiarInputTarea('');
+    }
+
   }
 
   return (

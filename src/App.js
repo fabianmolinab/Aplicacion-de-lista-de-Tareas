@@ -4,6 +4,7 @@ import { Header } from './Componentes/Header';
 import { FormularioTareas } from './Componentes/FormularioTareas';
 import { Contenedor } from './Estilos/Contenedor.styles';
 import { ListaTareas } from './Componentes/ListaTareas';
+import { ModoOscuro } from './Componentes/ModoOscuro';
 
 export const App = () => {
 
@@ -29,22 +30,25 @@ export const App = () => {
   }, [mostrarCompletadas]);
 
   return (
-    <Contenedor>
-      <Header
-        cambiarMostrarCompletadas={cambiarMostrarCompletadas}
-        mostrarCompletadas={mostrarCompletadas}
-      />
+    <>
+      <ModoOscuro />
+      <Contenedor>
+        <Header
+          cambiarMostrarCompletadas={cambiarMostrarCompletadas}
+          mostrarCompletadas={mostrarCompletadas}
+        />
 
-      <FormularioTareas
-        tareas={tareas}
-        cambiarTareas={cambiarTareas}
-      />
+        <FormularioTareas
+          tareas={tareas}
+          cambiarTareas={cambiarTareas}
+        />
 
-      <ListaTareas
-        tareas={tareas}
-        cambiarTareas={cambiarTareas}
-        mostrarCompletadas={mostrarCompletadas}
-      />
-    </Contenedor>
+        <ListaTareas
+          tareas={tareas}
+          cambiarTareas={cambiarTareas}
+          mostrarCompletadas={mostrarCompletadas}
+        />
+      </Contenedor>
+    </>
   )
 };
