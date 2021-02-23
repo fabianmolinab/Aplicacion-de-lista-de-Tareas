@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
+import { ThemeProvider } from "styled-components";
 
 import { Header } from './Componentes/Header';
 import { FormularioTareas } from './Componentes/FormularioTareas';
-import { Contenedor } from './Estilos/Contenedor.styles';
 import { ListaTareas } from './Componentes/ListaTareas';
-import { ModoOscuro } from './Componentes/ModoOscuro';
+import { Switch } from './Componentes/Modo Oscuro/Switch';
+import { EstilosGlobales } from './Componentes/Modo Oscuro/EstilosGlobales';
+import { lightTheme, darkTheme } from "./Componentes/Modo Oscuro/Temas"
+
+import { Contenedor } from './Estilos/Contenedor.styles';
 
 export const App = () => {
 
@@ -29,26 +33,33 @@ export const App = () => {
     localStorage.setItem('mostrarCompletadas', mostrarCompletadas.toString());
   }, [mostrarCompletadas]);
 
+  //Hook Modo Oscuro
+  const [theme, setTheme] = useState('light');
+
   return (
-    <>
-      <ModoOscuro />
-      <Contenedor>
-        <Header
-          cambiarMostrarCompletadas={cambiarMostrarCompletadas}
-          mostrarCompletadas={mostrarCompletadas}
-        />
 
-        <FormularioTareas
-          tareas={tareas}
-          cambiarTareas={cambiarTareas}
-        />
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <>
+        <EstilosGlobales />
+        <Switch theme={theme} setTheme={setTheme} />
+        <Contenedor>
+          <Header
+            cambiarMostrarCompletadas={cambiarMostrarCompletadas}
+            mostrarCompletadas={mostrarCompletadas}
+          />
+          {/* Formulario donde se escribe la tarea */}
+          <FormularioTareas
+            tareas={tareas}
+            cambiarTareas={cambiarTareas}
+          />
 
-        <ListaTareas
-          tareas={tareas}
-          cambiarTareas={cambiarTareas}
-          mostrarCompletadas={mostrarCompletadas}
-        />
-      </Contenedor>
-    </>
+          <ListaTareas
+            tareas={tareas}
+            cambiarTareas={cambiarTareas}
+            mostrarCompletadas={mostrarCompletadas}
+          />
+        </Contenedor>
+      </>
+    </ThemeProvider>
   )
 };

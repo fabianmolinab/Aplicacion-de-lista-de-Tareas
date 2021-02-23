@@ -1,17 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function Switch({ dark, setDark }) {
+export const Switch = ({ setTheme, theme }) => {
 
-  const activeDark = () => {
-    setDark(!dark);
+
+  // verifica el estado del theme, y alterna entre oscuro o claro según el valor de la condición.
+  const themeToggler = () => {
+
+    theme === 'light' ?
+      setTheme('dark')
+      :
+      setTheme('light')
   }
-
   return (
     <div>
       <ContenedorCheckBox>
-        <SwitchInput type="checkbox" id="checkbox" onClick={activeDark} />
-        <SwitchLabel htmlFor="checkbox" />
+        <SwitchInput type="checkbox" id="checkbox" />
+        <SwitchLabel htmlFor="checkbox" onClick={themeToggler} />
       </ContenedorCheckBox>
     </div>
   )

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const ListaTareasStyles = styled.li`
 	align-items: center;
-	color: #4B4B4B;
+	color: ${({ theme }) => theme.text};
 	display: grid;
 	font-size: 18px;
   height: 60px;
@@ -13,7 +13,8 @@ export const ListaTareasStyles = styled.li`
 		opacity: 0.5;
 	}
 	&:nth-child(even) {
-		background: #F3F3F3;
+		background: ${({ theme }) => theme.body};
+    
 	}
 `
 

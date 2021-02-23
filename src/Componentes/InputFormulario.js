@@ -18,11 +18,12 @@ export const InputFormulario = ({ inputTarea, cambiarInputTarea }) => {
   )
 }
 const Input = styled.input`
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
   border: none;
 	padding: 15px;
 	width: 100%;
 	font-size: 20px;
-	font-family: 'Roboto', sans-serif;
   border-bottom: 2px solid #b8b8b8;
   &:focus {
     outline: none;
