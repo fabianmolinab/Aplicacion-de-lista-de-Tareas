@@ -2,15 +2,21 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 
-import { InputFormulario } from './InputFormulario';
 import { BotonStyles } from '../Estilos/Boton.styles';
 import { FormularioStyles } from '../Estilos/Formulario.styles';
 import { Iconos } from '../Estilos/Iconos.styles';
+import { InputStyle } from '../Estilos/InputStyle';
 
 export const FormularioTareas = ({ tareas, cambiarTareas }) => {
 
   const [inputTarea, cambiarInputTarea] = useState('');
 
+  //Permite modificar el formulario del ingresar tarea
+  const handleInput = (e) => {
+    cambiarInputTarea(e.target.value);
+  }
+
+  // Ejecuta el Submit y agrega la tarea
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -27,15 +33,16 @@ export const FormularioTareas = ({ tareas, cambiarTareas }) => {
       );
       cambiarInputTarea('');
     }
-
   }
 
   return (
     <FormularioStyles action="" onSubmit={handleSubmit}>
-
-      <InputFormulario
-        inputTarea={inputTarea}
-        cambiarInputTarea={cambiarInputTarea}
+      {/* Estilos de tipo Input */}
+      <InputStyle
+        type="text"
+        placeholder="Escribe una tarea"
+        value={inputTarea}
+        onChange={(e) => handleInput(e)}
       />
 
       <BotonStyles>

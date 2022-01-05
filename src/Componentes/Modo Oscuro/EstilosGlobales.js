@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components";
 
 export const EstilosGlobales = createGlobalStyle`
 
@@ -9,4 +9,5 @@ export const EstilosGlobales = createGlobalStyle`
     font-family: Tahoma, Helvetica, Arial, Roboto, sans-serif;
     transition: all 0.50s linear;
   }
-  `
+  `;
+
