@@ -1,43 +1,39 @@
 import React, { useEffect, useState } from 'react'
-import { ThemeProvider } from "styled-components";
-
-import { Header } from './Componentes/Header';
-import { FormularioTareas } from './Componentes/FormularioTareas';
-import { ListaTareas } from './Componentes/ListaTareas';
-import { Switch } from './Componentes/Modo Oscuro/Switch';
-import { EstilosGlobales } from './Componentes/Modo Oscuro/EstilosGlobales';
-import { lightTheme, darkTheme } from "./Componentes/Modo Oscuro/Temas"
-
-import { Contenedor } from './Estilos/Contenedor.styles';
+import { ThemeProvider } from 'styled-components'
+import { FormularioTareas } from './Componentes/FormularioTareas'
+import { Header } from './Componentes/Header'
+import { ListaTareas } from './Componentes/ListaTareas'
+import { EstilosGlobales } from './Componentes/Modo Oscuro/EstilosGlobales'
+import { Switch } from './Componentes/Modo Oscuro/Switch'
+import { darkTheme, lightTheme } from './Componentes/Modo Oscuro/Temas'
+import { Contenedor } from './Estilos/Contenedor.styles'
 
 export const App = () => {
+  // Valor inicial con las tareas del LocalStorage
+  const tareasGuardadas = localStorage.getItem('tareas')
+    ? JSON.parse(localStorage.getItem('tareas'))
+    : []
 
-  //Valor inicial con las tareas del LocalStorage
-  const tareasGuardadas = localStorage.getItem('tareas') ?
-    JSON.parse(localStorage.getItem('tareas'))
-    : [];
+  // Hook para cambiar estado de submit
+  const [tareas, cambiarTareas] = useState(tareasGuardadas)
 
-  //Hook para cambiar estado de submit
-  const [tareas, cambiarTareas] = useState(tareasGuardadas);
-
-  //Guardando en el LocalStorage
+  // Guardando en el LocalStorage
   useEffect(() => {
-    localStorage.setItem('tareas', JSON.stringify(tareas));
-  }, [tareas]);
+    localStorage.setItem('tareas', JSON.stringify(tareas))
+  }, [tareas])
 
-  //Hook para mostrar tareas completadas
-  const [mostrarCompletadas, cambiarMostrarCompletadas] = useState(true);
+  // Hook para mostrar tareas completadas
+  const [mostrarCompletadas, cambiarMostrarCompletadas] = useState(true)
 
-  //Estado Mostrar Completadas
+  // Mostrar Completadas
   useEffect(() => {
-    localStorage.setItem('mostrarCompletadas', mostrarCompletadas.toString());
-  }, [mostrarCompletadas]);
+    localStorage.setItem('mostrarCompletadas', mostrarCompletadas.toString())
+  }, [mostrarCompletadas])
 
-  //Hook Modo Oscuro
-  const [theme, setTheme] = useState('light');
+  // Hook Modo Oscuro
+  const [theme, setTheme] = useState('light')
 
   return (
-
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
         <EstilosGlobales />
@@ -48,10 +44,7 @@ export const App = () => {
             mostrarCompletadas={mostrarCompletadas}
           />
           {/* Formulario donde se escribe la tarea */}
-          <FormularioTareas
-            tareas={tareas}
-            cambiarTareas={cambiarTareas}
-          />
+          <FormularioTareas tareas={tareas} cambiarTareas={cambiarTareas} />
 
           <ListaTareas
             tareas={tareas}
@@ -62,4 +55,4 @@ export const App = () => {
       </>
     </ThemeProvider>
   )
-};
+}

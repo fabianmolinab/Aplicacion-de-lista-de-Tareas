@@ -1,10 +1,9 @@
-import React from 'react';
-import { BotonHeader } from './BotonHeader';
+import React from 'react'
+import { BotonHeader } from './BotonHeader'
 
-import { Encabezado } from '../Estilos/Encabezado.styles';
-import { Contenedor } from '../Estilos/Contenedor.styles';
-import { Tituloh1 } from '../Estilos/Tituloh1.styles';
-
+import { Encabezado } from '../Estilos/Encabezado.styles'
+import { Contenedor } from '../Estilos/Contenedor.styles'
+import { Tituloh1 } from '../Estilos/Tituloh1.styles'
 
 export const Header = ({ cambiarMostrarCompletadas, mostrarCompletadas }) => {
   return (
@@ -20,4 +19,4 @@ export const Header = ({ cambiarMostrarCompletadas, mostrarCompletadas }) => {
       </Encabezado>
     </Contenedor>
   )
-};
+}

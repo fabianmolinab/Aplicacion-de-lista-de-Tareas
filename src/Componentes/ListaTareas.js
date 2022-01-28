@@ -1,28 +1,29 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable multiline-ternary */
 import React from 'react'
-import styled from 'styled-components';
+import styled from 'styled-components'
 import { Tarea } from './Tarea'
 
 export const ListaTareas = ({ tareas, cambiarTareas, mostrarCompletadas }) => {
-
   const toogleCompletada = (id) => {
-
-    cambiarTareas(tareas.map((tarea) => {
-      if (tarea.id === id) {
-        return { ...tarea, completada: !tarea.completada }
-
-      } return tarea
-
-    }));
+    cambiarTareas(
+      tareas.map((tarea) => {
+        if (tarea.id === id) {
+          return { ...tarea, completada: !tarea.completada }
+        }
+        return tarea
+      })
+    )
   }
 
   const borrarTarea = (id) => {
-
-    cambiarTareas(tareas.filter((tarea) => {
-      if (tarea.id !== id) {
-        return tarea;
-      }
-      return;
-    }));
+    cambiarTareas(
+      tareas.filter((tarea) => {
+        if (tarea.id !== id) {
+          return tarea
+        }
+      })
+    )
   }
 
   return (
@@ -37,7 +38,8 @@ export const ListaTareas = ({ tareas, cambiarTareas, mostrarCompletadas }) => {
               toogleCompletada={toogleCompletada}
               borrarTarea={borrarTarea}
             />
-            //Mostrar no completadas
+
+            // Mostrar no completadas
           } else if (!tarea.completada) {
             return <Tarea
               key={tarea.id}
@@ -46,8 +48,6 @@ export const ListaTareas = ({ tareas, cambiarTareas, mostrarCompletadas }) => {
               borrarTarea={borrarTarea}
             />
           }
-          return;
-
         })
           : <MensajeListaTareas>----Aun no hay tareas----</MensajeListaTareas>
       }
@@ -59,13 +59,12 @@ export const ListaTareas = ({ tareas, cambiarTareas, mostrarCompletadas }) => {
 
 export const ListaUl = styled.ul`
   list-style: none;
-	height: 100%;
-	overflow: auto;
+  height: 100%;
+  overflow: auto;
 `
 export const MensajeListaTareas = styled.div`
   text-align: center;
-	color: #b8b8b8;
-	font-size: 20px;
-	padding: 40px 20px;
-
+  color: #b8b8b8;
+  font-size: 20px;
+  padding: 40px 20px;
 `
