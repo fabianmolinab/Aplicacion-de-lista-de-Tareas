@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Encabezado = styled.header`
   display: flex;
@@ -9,4 +9,4 @@ export const Encabezado = styled.header`
   background:  #007AEA;
   color: #fff;
   border-radius: 3px 3px 0px 0px;
-`;
+`

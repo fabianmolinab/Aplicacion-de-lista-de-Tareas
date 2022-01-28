@@ -1,24 +1,22 @@
-import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
-
-import { BotonStyles } from '../Estilos/Boton.styles';
-import { FormularioStyles } from '../Estilos/Formulario.styles';
-import { Iconos } from '../Estilos/Iconos.styles';
-import { InputStyle } from '../Estilos/InputStyle';
+import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'
+import React, { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
+import { BotonStyles } from '../Estilos/Boton.styles'
+import { FormularioStyles } from '../Estilos/Formulario.styles'
+import { Iconos } from '../Estilos/Iconos.styles'
+import { InputStyle } from '../Estilos/InputStyle'
 
 export const FormularioTareas = ({ tareas, cambiarTareas }) => {
+  const [inputTarea, cambiarInputTarea] = useState('')
 
-  const [inputTarea, cambiarInputTarea] = useState('');
-
-  //Permite modificar el formulario del ingresar tarea
+  // Permite modificar el formulario del ingresar tarea
   const handleInput = (e) => {
-    cambiarInputTarea(e.target.value);
+    cambiarInputTarea(e.target.value)
   }
 
   // Ejecuta el Submit y agrega la tarea
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (inputTarea !== '') {
       cambiarTareas(
@@ -30,8 +28,8 @@ export const FormularioTareas = ({ tareas, cambiarTareas }) => {
             completada: false
           }
         ]
-      );
-      cambiarInputTarea('');
+      )
+      cambiarInputTarea('')
     }
   }
 
@@ -49,5 +47,5 @@ export const FormularioTareas = ({ tareas, cambiarTareas }) => {
         <Iconos formicon="true" icon={faPlusSquare} />
       </BotonStyles>
     </FormularioStyles>
-  );
+  )
 }

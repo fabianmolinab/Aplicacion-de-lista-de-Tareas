@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Contenedor = styled.div`
     box-shadow: 0 2px 10px rgba(139,139,139,.25);
@@ -10,6 +10,4 @@ export const Contenedor = styled.div`
     max-height: 90vh;
     max-width: 700px;
     width: 100%;
-  `;
-
-
+  `

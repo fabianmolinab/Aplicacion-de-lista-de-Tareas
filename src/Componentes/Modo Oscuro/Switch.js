@@ -1,16 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 export const Switch = ({ setTheme, theme }) => {
-
-
   // verifica el estado del theme, y alterna entre oscuro o claro según el valor de la condición.
   const themeToggler = () => {
-
-    theme === 'light' ?
-      setTheme('dark')
-      :
-      setTheme('light')
+    theme === 'light'
+      ? setTheme('dark')
+      : setTheme('light')
   }
   return (
     <div>
@@ -22,10 +18,10 @@ export const Switch = ({ setTheme, theme }) => {
   )
 }
 
-//Estilos
+// Estilos
 const ContenedorCheckBox = styled.div`
   position: relative;
-`;
+`
 
 const SwitchLabel = styled.label`
   position: absolute;
@@ -48,7 +44,7 @@ const SwitchLabel = styled.label`
     box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);
     transition: 0.2s;
   }
-`;
+`
 
 const SwitchInput = styled.input`
   opacity: 0;
@@ -70,5 +66,4 @@ const SwitchInput = styled.input`
       transition: 0.2s;
     }
   }
-`;
-
+`
