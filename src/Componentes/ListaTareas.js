@@ -38,7 +38,6 @@ export const ListaTareas = ({ tareas, cambiarTareas, mostrarCompletadas }) => {
               toogleCompletada={toogleCompletada}
               borrarTarea={borrarTarea}
             />
-
             // Mostrar no completadas
           } else if (!tarea.completada) {
             return <Tarea

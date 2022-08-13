@@ -1,21 +1,14 @@
 import React, { useState } from 'react'
 
-// Estilos
-import { IconCheck, Iconos } from '../Estilos/Iconos.styles'
-import {
-  faCheckSquare,
-  faEdit,
-  faSquare,
-  faTimes
-} from '@fortawesome/free-solid-svg-icons'
-import {
-  ListaTareasStyles,
-  ListaTareasTextoStyles
-} from '../Estilos/ListaTareas.styles'
-import { ContenedorFlex } from '../Estilos/ContenedorFlex.styles'
+//Estilos
+import { Iconos, IconCheck } from '../Estilos/Iconos.styles';
+import { faCheckSquare, faEdit, faSquare, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { ListaTareasStyles, ListaTareasTextoStyles } from '../Estilos/ListaTareas.styles';
+import { ContenedorFlex } from '../Estilos/ContenedorFlex.styles';
 
-// Componentes
-import { EditarTareas } from './EditarTareas'
+//Componentes
+import { EditarTareas } from './EditarTareas';
+
 
 export const Tarea = ({ tarea, toogleCompletada, borrarTarea }) => {
   // Estado para mostar la sección de editar tarea
@@ -37,15 +30,15 @@ export const Tarea = ({ tarea, toogleCompletada, borrarTarea }) => {
       <ListaTareasTextoStyles>
         {/* Condicional que permite si: editandoTarea esta true muestra todo el formulario para mostrar el formulario de edicion */}
         {editandoTarea
-          ? (
+          ?
           <EditarTareas
             tarea={tarea}
             editandoTarea={editandoTarea}
             cambiarEditandoTarea={cambiarEditandoTarea}
           />
             )
-          : (
-              tarea.texto
+        : (
+        tarea.texto
             )}
       </ListaTareasTextoStyles>
       <ContenedorFlex>
